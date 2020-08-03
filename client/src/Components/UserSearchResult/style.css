@@ -1,0 +1,17 @@
+.result-wrapper {
+  padding-top: 86px;
+}
+
+.link-decoration {
+  text-decoration: none;
+}
+
+.user-card {
+  margin: auto;
+  margin-bottom: 6px;
+  max-width: 500px;
+}
+
+.header-wrapper {
+  text-align: left;
+}

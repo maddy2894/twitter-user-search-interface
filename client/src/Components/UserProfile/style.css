@@ -1,0 +1,11 @@
+.user-avatar {
+  border-radius: 50%;
+  border: 6px solid #222;
+  width: 250px;
+  height: 250px;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: red;
+}
