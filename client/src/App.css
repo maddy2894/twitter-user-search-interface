@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .container {
   padding-top: 140px;
 }
@@ -15,15 +10,8 @@
   height: calc(100vh - 140px);
 }
 
-.move {
-  margin-top: 30px;
-  transition: all 11.5s;
-  -webkit-transition: all 11.5s;
-}
-
 .App-header {
   position: fixed;
-  padding-top: 145px;
   width: 100%;
   z-index: 10;
   background-color: #222;
@@ -45,11 +33,12 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 480px) {
+  .App-header {
+    height: 42px;
+    font-size: 25px;
   }
-  to {
-    transform: rotate(360deg);
+  .container {
+    padding-top: 82px;
   }
 }

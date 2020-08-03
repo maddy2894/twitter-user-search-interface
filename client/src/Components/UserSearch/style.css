@@ -27,3 +27,12 @@
   color: red;
   padding-top: 86px;
 }
+
+@media screen and (max-width: 480px) {
+  .search-div {
+    width: 91%;
+  }
+  .search-input {
+    width: 180px;
+  }
+}
