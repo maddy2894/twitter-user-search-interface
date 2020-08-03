@@ -1,22 +1,26 @@
+import Container from '@material-ui/core/Container';
 import * as React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  // useHistory,
+} from 'react-router-dom';
 import './App.css';
+import UserProfile from './Components/UserProfile';
+import UserSearch from './Components/UserSearch';
 
-import logo from './logo.svg';
-
-class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <main className="App">
+        <div className="App-header">Twitter - User search</div>
+        <Container maxWidth="lg" className="container">
+          <div className="sub-container">
+            <Route path="/" exact={true} component={UserSearch} />
+            <Route path="/user/:userId" component={UserProfile} />
+          </div>
+        </Container>
+      </main>
+    </Router>
+  );
 }
-
-export default App;

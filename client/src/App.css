@@ -7,10 +7,33 @@
   height: 80px;
 }
 
+.container {
+  padding-top: 140px;
+}
+
+.sub-container {
+  height: calc(100vh - 140px);
+}
+
+.move {
+  margin-top: 30px;
+  transition: all 11.5s;
+  -webkit-transition: all 11.5s;
+}
+
 .App-header {
+  position: fixed;
+  padding-top: 145px;
+  width: 100%;
+  z-index: 10;
   background-color: #222;
-  height: 150px;
+  height: 100px;
+  margin-bottom: 20px;
+  font-size: 30px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 
@@ -23,6 +46,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
