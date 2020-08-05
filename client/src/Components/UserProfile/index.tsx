@@ -3,10 +3,16 @@ import axios from 'axios';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tweet } from 'react-twitter-widgets';
+import { resetSearchResults, setError } from '../../Redux/actions';
+import { PayloadState } from '../../Redux/types';
 import './style.css';
 
+interface State {
+  usersData: PayloadState;
+}
+
 export default function UserProfile({ match }) {
-  const selector = useSelector((state: any) => state.usersSearch);
+  const selector = useSelector((state: State) => state.usersData);
   const [searchedUser, setSearchedUser] = React.useState({
     followers_count: '',
     name: '',
@@ -28,16 +34,11 @@ export default function UserProfile({ match }) {
         setSearchedUser(response.data.response);
       })
       .catch((error) => {
-        dispatch({
-          type: 'SET_ERROR',
-          payload: error.response.data.message,
-        });
+        dispatch(setError(error.response.data.message));
       });
 
     return () => {
-      dispatch({
-        type: 'RESET_SEARCH_RESULT',
-      });
+      dispatch(resetSearchResults());
     };
   }, []);
 

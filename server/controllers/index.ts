@@ -1,5 +1,13 @@
 import * as Twitter from 'twitter';
 import { config } from '../config/secrets-config';
+import { configure, getLogger } from 'log4js';
+
+configure({
+  appenders: {
+    searchRequests: { type: 'file', filename: 'search-requests.log' },
+  },
+  categories: { default: { appenders: ['searchRequests'], level: 'info' } },
+});
 
 const client = new Twitter({
   consumer_key: config.consumer_key,
@@ -14,12 +22,16 @@ module.exports = function (app) {
 };
 
 async function searchUsers(req, res) {
+  const logger = getLogger('searchRequests');
   const { search, page } = req.query;
   let response;
   if (search === '') {
     return res.status(500).send({ message: 'Search term cannot be empty' });
   }
   try {
+    logger.info(
+      `Searched term is ${search} and page number - ${page} with 10 count in each page`
+    );
     response = await client.get('users/search.json', {
       q: search,
       count: 10,

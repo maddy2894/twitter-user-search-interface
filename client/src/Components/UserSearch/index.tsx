@@ -3,14 +3,20 @@ import SearchIcon from '@material-ui/icons/Search';
 import axios from 'axios';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setError, setSearchResult } from '../../Redux/actions';
+import { PayloadState } from '../../Redux/types';
 import UserSearchResult from '../UserSearchResult';
 import './style.css';
+
+interface State {
+  usersData: PayloadState;
+}
 
 export default function UserSearch() {
   const [searchTerm, setSearchTerm] = React.useState('');
   const [pageCount, setPageCount] = React.useState(1);
   const dispatch = useDispatch();
-  const selector = useSelector((state: any) => state.usersSearch);
+  const selector = useSelector((state: State) => state.usersData);
 
   React.useEffect(() => {
     if (selector.isLoading) {
@@ -28,28 +34,20 @@ export default function UserSearch() {
       axios
         .get('/api/users/search', {
           params: {
-            page: pageCount,
             search: searchTerm,
+            page: selector.isLoading ? pageCount : 1,
           },
         })
         .then((response) => {
           setPageCount(pageCount + 1);
-          dispatch({
-            payload: response.data.response,
-            type: 'SET_SEARCH_RESULT',
-          });
+
+          dispatch(setSearchResult(response.data.response));
         })
         .catch((error) => {
-          dispatch({
-            type: 'SET_ERROR',
-            payload: error.response.data.message,
-          });
+          dispatch(setError(error.response.data.message));
         });
     } else {
-      dispatch({
-        type: 'SET_ERROR',
-        payload: 'Please enter any value. Search term cannot be empty',
-      });
+      dispatch(setError('Please enter any value. Search term cannot be empty'));
     }
   }
 

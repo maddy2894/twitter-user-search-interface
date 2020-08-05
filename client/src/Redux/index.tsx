@@ -1,14 +1,16 @@
 import { combineReducers, compose, createStore } from 'redux';
+import { PayloadState } from './types';
+
+const initialState: PayloadState = {
+  users: [],
+  error: false,
+  isLoading: false,
+  loadMore: false,
+  errorMessage: '',
+};
 
 const reducers = {
-  usersSearch: (
-    oldState = {
-      users: [],
-      error: false,
-      isLoading: false,
-    },
-    action
-  ) => {
+  usersData: (oldState = initialState, action) => {
     const { type } = action;
     switch (type) {
       case 'SET_SEARCH_RESULT':
@@ -27,7 +29,7 @@ const reducers = {
           errorMessage: action.payload,
           isLoading: false,
         };
-      case 'SET_LOAD_MORE':
+      case 'SET_LOADING':
         return {
           ...oldState,
           error: false,

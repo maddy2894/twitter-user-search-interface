@@ -6,16 +6,20 @@ import CardHeader from '@material-ui/core/CardHeader';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setLoading } from '../../Redux/actions';
+import { PayloadState } from '../../Redux/types';
 import './style.css';
 
+interface State {
+  usersData: PayloadState;
+}
+
 export default function UserSearchResult() {
-  const selector = useSelector((state: any) => state.usersSearch);
+  const selector = useSelector((state: State) => state.usersData);
   const dispatch = useDispatch();
 
   function loadMoreUsers() {
-    dispatch({
-      type: 'SET_LOAD_MORE',
-    });
+    dispatch(setLoading());
   }
 
   return (
