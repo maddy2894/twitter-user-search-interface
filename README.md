@@ -32,15 +32,15 @@ From your root folder, run the following commands in the terminal/command prompt
 3. `npm run client-server:start` - To start both client and server concurrently.
 4. It should automatically take you to the browser. If not, visit http://localhost:3000 in your browser.
 
-### Test
+## Test
 From your root folder, run the following commands in the terminal/command prompt.
 1. `npm run server:start` - To start the server.
 2. open another tab in the terminal/command prompt
 3. `npm run test` - To run the test.
 
-### Future
+## Future
 
-#### Adding CI/CD to the project:
+### Adding CI/CD to the project:
 We can use AWS CodePipeline to source this repository and automatically start build and deploy prcocess when a commit is been made to the master branch.
 * Optimal configuration for AWS CodePipeline:
 1. Source - This GitHub repository.
