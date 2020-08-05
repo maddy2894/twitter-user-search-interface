@@ -9,3 +9,20 @@
   font-size: 1.2rem;
   color: red;
 }
+
+.tweet-container {
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.tweet-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.profile-wrapper {
+  padding-top: 14px;
+}

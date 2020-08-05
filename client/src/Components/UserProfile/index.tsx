@@ -2,6 +2,7 @@ import { CircularProgress } from '@material-ui/core';
 import axios from 'axios';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Tweet } from 'react-twitter-widgets';
 import './style.css';
 
 export default function UserProfile({ match }) {
@@ -11,6 +12,7 @@ export default function UserProfile({ match }) {
     name: '',
     profile_image_url_https: '',
     screen_name: '',
+    tweets: [{ id_str: '' }],
   });
 
   const dispatch = useDispatch();
@@ -40,7 +42,7 @@ export default function UserProfile({ match }) {
   }, []);
 
   return (
-    <div>
+    <div className="profile-wrapper">
       {selector.error ? (
         <div className="error-message">{selector.errorMessage}</div>
       ) : searchedUser.name !== '' ? (
@@ -53,6 +55,13 @@ export default function UserProfile({ match }) {
             <h1>{searchedUser.name}</h1>
             <h2>@{searchedUser.screen_name}</h2>
             <h3>{searchedUser.followers_count} followers</h3>
+          </div>
+          <div className="tweet-container">
+            {searchedUser.tweets.map((tweet, i) => (
+              <div key={i} className="tweet-wrapper">
+                <Tweet tweetId={tweet.id_str} />
+              </div>
+            ))}
           </div>
         </div>
       ) : (

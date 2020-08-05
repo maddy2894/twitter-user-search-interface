@@ -3,7 +3,7 @@
 }
 
 .container {
-  padding-top: 140px;
+  padding-top: 100px;
 }
 
 .sub-container {
@@ -15,7 +15,7 @@
   width: 100%;
   z-index: 10;
   background-color: #222;
-  height: 100px;
+  height: 62px;
   margin-bottom: 20px;
   font-size: 30px;
   padding: 20px;

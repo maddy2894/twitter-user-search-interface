@@ -22,22 +22,28 @@ export default function UserSearchResult() {
     <div className="result-wrapper">
       {selector.users
         ? selector.users.map((user: any, i) => (
-            <Link to={`/user/${user.id}`} key={i} className="link-decoration">
-              <Card className="user-card">
-                <CardHeader
-                  className="header-wrapper"
-                  avatar={
-                    <Avatar>
-                      <img
-                        src={user.profile_image_url_https}
-                        alt="Profile image"
-                      />
-                    </Avatar>
-                  }
-                  title={user.name + ' (@' + user.screen_name + ')'}
-                />
-              </Card>
-            </Link>
+            <div key={i}>
+              {!user.protected ? (
+                <Link to={`/user/${user.id}`} className="link-decoration">
+                  <Card className="user-card">
+                    <CardHeader
+                      className="header-wrapper"
+                      avatar={
+                        <Avatar>
+                          <img
+                            src={user.profile_image_url_https}
+                            alt="Profile image"
+                          />
+                        </Avatar>
+                      }
+                      title={user.name + ' (@' + user.screen_name + ')'}
+                    />
+                  </Card>
+                </Link>
+              ) : (
+                ''
+              )}
+            </div>
           ))
         : ''}
       {selector.loadMore ? (
