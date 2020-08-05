@@ -1,0 +1,30 @@
+{
+  "name": "twitter-user-search-interface",
+  "version": "1.0.0",
+  "description": "twitter-user-search-interface",
+  "main": "index.js",
+  "scripts": {
+    "client-server:install": "cd client && npm install && cd .. && cd server && npm install",
+    "client-server:build": "npm run client-build && npm run server-build",
+    "client-build": "cd client && npm run build",
+    "server-build": "cd server && npm run tsc",
+    "client-server:start": "concurrently --kill-others \"npm run client:start\" \"npm run server:start\"",
+    "client:start": "cd client && npm start",
+    "server:start": "cd server && npm start",
+    "test": "mocha server/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maddy2894/twitter-user-search-interface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maddy2894/twitter-user-search-interface/issues"
+  },
+  "homepage": "https://github.com/maddy2894/twitter-user-search-interface#readme",
+  "dependencies": {
+    "mocha": "^8.1.1"
+  }
+}
