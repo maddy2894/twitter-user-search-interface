@@ -37,9 +37,11 @@ export default function UserProfile({ match }) {
         dispatch(setError(error.response.data.message));
       });
 
+    // Reset search results when navigating from user profile
     return () => {
       dispatch(resetSearchResults());
     };
+    // Trigger only one time
   }, []);
 
   return (

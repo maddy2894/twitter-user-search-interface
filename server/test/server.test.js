@@ -25,7 +25,7 @@ describe('User search test', () => {
 });
 
 describe('User profile test', () => {
-  it('Search for a user with user id', function (done) {
+  it('Search for a user with userId', function (done) {
     request('http://localhost:4000/api/user?userId=155659213', function (
       error,
       response,

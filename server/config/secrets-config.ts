@@ -1,3 +1,4 @@
+// Secrets are stored on .env file
 export const config = {
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,

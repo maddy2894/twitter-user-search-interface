@@ -1,0 +1,14 @@
+Thought process:
+
+1) I am going to analyse the requirements and note down the necessary 3rd party libraries.
+2) I am going to research on making React typescript.
+3) I am going to test the twitter service with given endpoints using Postman before implementing into the application.
+4) I am going to create react components for UserSearch, UserSearchResult and UserProfile.
+5) I am going to use Material-UI for design
+6) I am going to create backend server files to fetch users data using twitter endpoints
+7) I am going to use log4js library to create a log file for every search requests.
+8) I am going to use proxy to connect reactJs with nodeJs for API calls.
+9) I am going to use Redux as state management to store searched users data.
+10) I am going to write unit tests for nodeJs using mocha and chai libraries.
+11) I am going to write unit tests for reactJs using enzyme library.
+12) I am going to create a react component for page not found case.

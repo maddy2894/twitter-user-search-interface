@@ -55,10 +55,21 @@ export default function UserSearch() {
     setSearchTerm(event.target.value);
   }
 
+  function onEnter(event) {
+    if (event.key === 'Enter') {
+      onSearchUser();
+    }
+  }
+
   return (
     <>
       <div className="search-div">
-        <input type="text" className="search-input" onChange={storeInput} />
+        <input
+          type="text"
+          className="search-input"
+          onKeyDown={onEnter}
+          onChange={storeInput}
+        />
         <Button
           variant="contained"
           className="search-button"
