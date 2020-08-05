@@ -19,7 +19,7 @@ export default function UserProfile({ match }) {
 
   React.useEffect(() => {
     axios
-      .get('/api/user', {
+      .get('/api/user/profile', {
         params: {
           userId: match.params.userId,
         },

@@ -36,7 +36,7 @@ describe('User profile test', () => {
     });
   });
   it('Empty userId should throw error', function (done) {
-    request('http://localhost:4000/api/user?userId=', function (
+    request('http://localhost:4000/api/user/profile?userId=', function (
       error,
       response,
       body
