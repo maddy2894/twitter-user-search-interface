@@ -1,0 +1,38 @@
+.search-div {
+  position: fixed;
+  width: 73%;
+  align-items: center;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  margin: auto;
+  z-index: 1;
+  background: white;
+}
+
+.search-input {
+  font-size: 1.5rem;
+  height: 36px;
+  text-align: center;
+  margin-right: 16px;
+  width: 400px;
+}
+
+.search-button {
+  background: #222 !important;
+  color: white !important;
+}
+
+.error-message {
+  color: red;
+  padding-top: 86px;
+}
+
+@media screen and (max-width: 480px) {
+  .search-div {
+    width: 91%;
+  }
+  .search-input {
+    width: 180px;
+  }
+}
