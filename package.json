@@ -4,7 +4,7 @@
   "description": "twitter-user-search-interface",
   "main": "index.js",
   "scripts": {
-    "client-server:install": "cd client && npm install && cd .. && cd server && npm install",
+    "client-server:install": "npm install && cd client && npm install && cd .. && cd server && npm install",
     "client-server:build": "npm run client-build && npm run server-build",
     "client-build": "cd client && npm run build",
     "server-build": "cd server && npm run tsc",
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/maddy2894/twitter-user-search-interface#readme",
   "dependencies": {
+    "concurrently": "^5.2.0",
     "mocha": "^8.1.1"
   }
 }
