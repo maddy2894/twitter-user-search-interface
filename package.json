@@ -15,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-merge-commit": "npm run test"
+      "pre-push": "if [[ $(git rev-parse --abbrev-ref HEAD) = check ]]; then npm run test; fi"
     }
   },
   "repository": {
